@@ -24,46 +24,64 @@ characterButton.addEventListener("click", function (event) {
 });
 
 planetButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    const url = "https://swapi.dev/api/planets";
-    fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        var planets = data.results.map((planet) => {
-          return `<div>
-                  <ul>
-                      <li>Name: ${planet.name}</li>
-                      <li>Diameter: ${planet.diameter}</li>
-                      <li>Climate: ${planet.climate}</li>
-                      <li>Population: ${planet.population}</li>
-                  </ul>
-              </div>`;
-        });
-        document.getElementById('output').innerHTML = planets;
+  event.preventDefault();
+  const url = "https://swapi.dev/api/planets";
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var planets = data.results.map((planet) => {
+        return `<div>
+                <ul>
+                    <li>Name: ${planet.name}</li>
+                    <li>Diameter: ${planet.diameter}</li>
+                    <li>Climate: ${planet.climate}</li>
+                </ul>
+            </div>`;
       });
-  });
-  
+      document.getElementById('output').innerHTML = planets;
+    });
+});
+
 starshipButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    const url = "https://swapi.dev/api/starships";
-    fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        var starship = data.results.map((ship) => {
-          return `<div>
-                  <ul>
-                      <li>Name: ${ship.name}</li>
-                      <li>Manufacturer: ${ship.manufacturer}</li>
-                      <li>Passengers: ${ship.passengers}</li>
-                      <li>Hyper Drive Rating: ${ship.hyperdrive_rating}</li>
-                  </ul>
-              </div>`;
-        });
-        document.getElementById('output').innerHTML = starship;
+  event.preventDefault();
+  const url = "https://swapi.dev/api/starships";
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var starships = data.results.map((ship) => {
+        return `<div>
+                <ul>
+                    <li>Name: ${ship.name}</li>
+                    <li>Manufacturer: ${ship.manufacturer}</li>
+                    <li>Passengers: ${ship.passengers}</li>
+                </ul>
+            </div>`;
       });
-  });
-  
+      document.getElementById('output').innerHTML = starships;
+    });
+});
+
+window.addEventListener("DOMContentLoaded", function (event) {
+  event.preventDefault();
+  const url = "https://swapi.dev/api/starships";
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var starships = data.results.map((ship) => {
+        return `<div>
+                <ul>
+                    <li>Name: ${ship.name}</li>
+                    <li>Manufacturer: ${ship.manufacturer}</li>
+                    <li>Passengers: ${ship.passengers}</li>
+                </ul>
+            </div>`;
+      });
+      document.getElementById('output').innerHTML = starships;
+    });
+});
